@@ -1,0 +1,10 @@
+tt.*
+lazylogo.lua
+.zshrc
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
