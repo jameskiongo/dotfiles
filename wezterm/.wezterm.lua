@@ -2,7 +2,11 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.color_scheme = "Catppuccin Mocha"
+-- config.color_scheme = "wilmersdorf"
+-- config.color_scheme = "Woodland (base16)"
+-- config.color_scheme = "UltraDark"
+-- config.color_scheme = "Rapture"
+config.color_scheme = "Paul Millr (Gogh)"
 config.enable_tab_bar = false
 
 config.window_close_confirmation = "NeverPrompt"
