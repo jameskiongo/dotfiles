@@ -27,12 +27,13 @@ return {
 				},
 				lualine_c = {
 					{
-						"buffers",
-						show_modified_status = true,
+						"filename",
+						filestatus = false,
 						symbols = {
 							modified = "",
 							readonly = "",
-							alternate_file = "",
+							unnamed = "[No Name]", -- Text to show for unnamed buffers.
+							newfile = "[New]", -- Text to show for newly created file before first write
 						},
 					},
 				},

@@ -197,6 +197,9 @@ run = "move-node-to-workspace B"
 if.app-id = 'com.apple.iBooksX'
 run = "move-node-to-workspace N"
 
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = "move-node-to-workspace B"
 
 
 [[on-window-detected]]
