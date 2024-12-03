@@ -193,6 +193,11 @@ run = "layout floating"
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace B"
 
+[[on-window-detected]]
+if.app-id = 'com.apple.iBooksX'
+run = "move-node-to-workspace N"
+
+
 
 [[on-window-detected]]
 # if.app-name-regex-substring = 'System Settings'
