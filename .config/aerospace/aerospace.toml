@@ -110,8 +110,10 @@ alt-shift-equal = 'resize smart +50'
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
+alt-a = 'workspace A' 
 alt-b = 'workspace B' # for Browser
 alt-e = 'workspace E' # for File Explorer (Finder)
+alt-d = 'workspace D' # for Figma
 alt-r = 'workspace R' # for Insomnia
 alt-m = 'workspace M' # for Music
 alt-n = 'workspace N' # for Notes
@@ -130,6 +132,7 @@ alt-shift-a = 'move-node-to-workspace A'
 alt-shift-b = 'move-node-to-workspace B'
 alt-shift-i = 'move-node-to-workspace I'
 alt-shift-e = 'move-node-to-workspace E'
+alt-shift-d = 'move-node-to-workspace D'
 alt-shift-m = 'move-node-to-workspace M'
 alt-shift-n = 'move-node-to-workspace N'
 alt-shift-p = 'move-node-to-workspace P'
@@ -201,6 +204,9 @@ run = "move-node-to-workspace N"
 if.app-id = 'org.mozilla.firefox'
 run = "move-node-to-workspace B"
 
+[[on-window-detected]]
+if.app-id = 'com.figma.Desktop'
+run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 # if.app-name-regex-substring = 'System Settings'

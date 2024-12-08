@@ -68,5 +68,6 @@ alias env="source env/bin/activate"
 alias la="ls -a"
 alias ta="tmux attach"
 alias ls="eza --color=always --icons=always"
+alias spotify="spotify_player"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
