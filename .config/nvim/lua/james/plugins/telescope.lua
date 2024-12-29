@@ -33,6 +33,7 @@ return {
 									preview_height = 0.8,
 								},
 							},
+							fzf = {},
 						},
 					},
 				},

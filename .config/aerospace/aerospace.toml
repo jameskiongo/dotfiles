@@ -210,8 +210,16 @@ run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 # if.app-name-regex-substring = 'System Settings'
+if.app-id = 'com.apple.ActivityMonitor'
+run = "layout floating"
+
+
+[[on-window-detected]]
+# if.app-name-regex-substring = 'System Settings'
 if.app-id = 'com.apple.systempreferences'
 run = "layout floating"
+
+
 [mode.apps.binding]
 alt-t=['exec-and-forget open -a /Applications/WezTerm.app', 'mode main']
 
