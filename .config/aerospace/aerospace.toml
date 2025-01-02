@@ -205,8 +205,13 @@ if.app-id = 'org.mozilla.firefox'
 run = "move-node-to-workspace B"
 
 [[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = "move-node-to-workspace T"
+
+[[on-window-detected]]
 if.app-id = 'com.figma.Desktop'
 run = "move-node-to-workspace D"
+
 
 [[on-window-detected]]
 # if.app-name-regex-substring = 'System Settings'
@@ -218,6 +223,8 @@ run = "layout floating"
 # if.app-name-regex-substring = 'System Settings'
 if.app-id = 'com.apple.systempreferences'
 run = "layout floating"
+
+
 
 
 [mode.apps.binding]
