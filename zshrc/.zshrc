@@ -82,3 +82,5 @@ function y() {
 	rm -f -- "$tmp"
 }
 export EDITOR=nvim
+
+. "$HOME/.local/bin/env"
