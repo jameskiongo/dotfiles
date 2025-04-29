@@ -276,17 +276,26 @@ return {
 				},
 			},
 		})
-
-		-- lspconfig.pyright.setup({
-		-- 	on_attach = on_attach,
-		-- 	capabilities = capabilities,
-		-- })
-		--
 		-- configure python server
-		lspconfig["jedi_language_server"].setup({
+		-- lspconfig["jedi_language_server"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "python" },
+		-- })
+		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "python" },
+			settings = {
+				python = {
+					analysis = {
+						autoSearchPaths = true,
+						diagnosticMode = "workspace",
+						useLibraryCodeForTypes = true,
+						typeCheckingMode = "basic", -- can be "off", "basic", or "strict"
+					},
+				},
+			},
 		})
 		lspconfig["clangd"].setup({
 			capabilities = capabilities,

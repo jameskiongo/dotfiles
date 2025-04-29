@@ -115,7 +115,7 @@ alt-b = 'workspace B' # for Browser
 alt-e = 'workspace E' # for File Explorer (Finder)
 alt-d = 'workspace D' # for Figma
 alt-r = 'workspace R' # for Insomnia
-alt-m = 'workspace M' # for Music
+alt-m = 'workspace M' # for Microsoft Products
 alt-n = 'workspace N' # for Notes
 alt-p = 'workspace P' # for Photo Editing
 alt-s = 'workspace S' # for Spotify 
@@ -211,6 +211,15 @@ run = "move-node-to-workspace T"
 [[on-window-detected]]
 if.app-id = 'com.figma.Desktop'
 run = "move-node-to-workspace D"
+
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Word'
+run = "move-node-to-workspace M"
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Powerpoint'
+run = "move-node-to-workspace M"
 
 
 [[on-window-detected]]

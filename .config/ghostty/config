@@ -13,6 +13,6 @@ window-padding-y = 20
 palette = 8=#899499
 copy-on-select = clipboard
 keybind = shift+f>r=reload_config
-keybind = shift+f>t=new_window
+keybind = shift+f>n=new_window
 keybind = shift+f>x=close_surface
 keybind= shift+f>f=toggle_quick_terminal
