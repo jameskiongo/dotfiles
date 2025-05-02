@@ -1,17 +1,10 @@
 return {
 	{
 		"echasnovski/mini.indentscope",
-		version = false, -- wait till new 0.7.0 release to put it back on semver
+		version = "*", -- wait till new 0.7.0 release to put it back on semver
 		opts = {
-			-- symbol = "▏",
 			symbol = "│",
-			options = { try_as_border = true },
-			draw = {
-				delay = 10, -- Set to 0 for instant drawing (default: 50)
-				animation = function() -- Optional: Custom animation speed
-					return 5 -- Lower = faster (default: 10)
-				end,
-			},
+			options = { try_as_border = false },
 		},
 		init = function()
 			vim.api.nvim_create_autocmd("FileType", {
@@ -44,5 +37,11 @@ return {
 				end,
 			})
 		end,
+		draw = {
+			delay = 10, -- Set to 0 for instant drawing (default: 50)
+			animation = function() -- Optional: Custom animation speed
+				return 5 -- Lower = faster (default: 10)
+			end,
+		},
 	},
 }
