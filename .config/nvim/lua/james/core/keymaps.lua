@@ -61,3 +61,8 @@ keymap.set("n", "<leader>qc", ":cclose<CR>") -- close quickfix list
 -- files
 keymap.set("n", "E", "$", { noremap = false }) -- move to end of line
 keymap.set("n", "B", "^", { noremap = false }) -- move to beginning of line
+
+--obsidian
+keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", {
+	desc = "Search notes in Obsidian vault",
+})
