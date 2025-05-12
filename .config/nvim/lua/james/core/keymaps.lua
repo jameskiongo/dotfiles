@@ -66,3 +66,15 @@ keymap.set("n", "B", "^", { noremap = false }) -- move to beginning of line
 keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", {
 	desc = "Search notes in Obsidian vault",
 })
+keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", {
+	desc = "Create new note in Obsidian vault",
+})
+keymap.set("n", "<leader>ot", "<cmd>ObsidianToday<CR>", {
+	desc = "Create today's note in Obsidian vault",
+})
+keymap.set("n", "<leader>ol", "<cmd>ObsidianLinkNew<CR>", {
+	desc = "Create new note in Obsidian vault with link",
+})
+keymap.set("n", "<leader>of", "<cmd>ObsidianFollowLink<CR>", {
+	desc = "Follow link in Obsidian vault",
+})
