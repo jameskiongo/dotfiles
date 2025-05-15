@@ -2,7 +2,12 @@ local opt = vim.opt -- for conciseness
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
-opt.conceallevel = 2 -- conceal level for markdown
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.conceallevel = 2
+	end,
+}) -- conceal markdown syntax
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
