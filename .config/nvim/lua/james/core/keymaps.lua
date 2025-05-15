@@ -78,3 +78,13 @@ keymap.set("n", "<leader>ol", "<cmd>ObsidianLinkNew<CR>", {
 keymap.set("n", "<leader>of", "<cmd>ObsidianFollowLink<CR>", {
 	desc = "Follow link in Obsidian vault",
 })
+
+--toggle lsp linting visibility
+local isLspDiagnosticsVisible = true
+vim.keymap.set("n", "<leader>lx", function()
+	isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+	vim.diagnostic.config({
+		virtual_text = isLspDiagnosticsVisible,
+		underline = isLspDiagnosticsVisible,
+	})
+end, { desc = "Toggle LSP diagnostics visibility" })
