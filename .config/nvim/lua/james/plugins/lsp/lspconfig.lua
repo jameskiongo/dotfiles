@@ -85,7 +85,8 @@ return {
 			on_attach = on_attach,
 		})
 		-- configure typescript server with plugin
-		lspconfig["ts_ls"].setup({
+		-- lspconfig["ts_ls"].setup({
+		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			opts = {
@@ -216,7 +217,8 @@ return {
 		})
 
 		-- configure tailwindcss server
-		lspconfig["tailwindcss"].setup({
+		-- lspconfig["tailwindcss"].setup({
+		vim.lsp.config("tailwindcss", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -252,7 +254,8 @@ return {
 		})
 
 		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
+		-- lspconfig["emmet_ls"].setup({
+		vim.lsp.config("emmet_ls", {
 			capabilities = capabilities,
 			filetypes = {
 				"css",
@@ -284,7 +287,8 @@ return {
 		-- 	on_attach = on_attach,
 		-- 	filetypes = { "python" },
 		-- })
-		lspconfig["pyright"].setup({
+		-- lspconfig["pyright"].setup({
+		vim.lsp.config("pyright", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "python" },
@@ -373,7 +377,8 @@ return {
 		-- 		".git"
 		-- 	),
 		-- })
-		lspconfig["lua_ls"].setup({
+		-- lspconfig["lua_ls"].setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
