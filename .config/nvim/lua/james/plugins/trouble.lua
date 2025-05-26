@@ -1,5 +1,8 @@
 return {
 	"folke/trouble.nvim",
+	dependencies = {
+		"nvim-telescope/telescope.nvim",
+	},
 	cmd = { "Trouble" },
 	opts = {
 		modes = {
