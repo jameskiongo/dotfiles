@@ -182,6 +182,7 @@ return {
 		end
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
+			-- enabled = false,
 			root_dir = function(fname)
 				local util = lspconfig.util
 				return not util.root_pattern("deno.json", "deno.jsonc")(fname)
