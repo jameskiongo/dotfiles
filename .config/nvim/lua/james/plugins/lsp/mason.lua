@@ -50,6 +50,7 @@ return {
 				"prettierd",
 				"sql-formatter",
 				"stylua", -- lua formatter
+				"biome",
 				"isort", -- python formatter
 				"black", -- python formatter
 				"pylint", -- python linter
