@@ -43,6 +43,7 @@ return {
 					"python",
 					"http",
 					"cpp",
+					"rust",
 				},
 				incremental_selection = {
 					enable = true,

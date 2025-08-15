@@ -127,40 +127,6 @@ return {
 			},
 		})
 
-		-- emmet_language_server
-		lspconfig.emmet_language_server.setup({
-			capabilities = capabilities,
-			filetypes = {
-				"css",
-				"eruby",
-				"html",
-				"javascript",
-				"javascriptreact",
-				"less",
-				"sass",
-				"scss",
-				"pug",
-				"typescriptreact",
-			},
-			init_options = {
-				includeLanguages = {},
-				excludeLanguages = {},
-				extensionsPath = {},
-				preferences = {},
-				showAbbreviationSuggestions = true,
-				showExpandedAbbreviation = "always",
-				showSuggestionsAsSnippets = false,
-				syntaxProfiles = {},
-				variables = {},
-			},
-		})
-
-		-- denols
-		lspconfig.denols.setup({
-			capabilities = capabilities,
-			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-		})
-
 		-- ts_ls (replaces tsserver)
 		local configs = require("lspconfig.configs")
 		if not configs.ts_ls then
@@ -251,6 +217,7 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable("pyright")
 		-- eslint
 		lspconfig.eslint.setup({
 			capabilities = capabilities,

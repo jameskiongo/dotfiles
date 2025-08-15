@@ -1,6 +1,6 @@
 return {
 	"sphamba/smear-cursor.nvim",
-	-- enabled = false,
+	enabled = false,
 	opts = {
 		enabled = true,
 		transparent_bg_fallback_color = "#ffffff",

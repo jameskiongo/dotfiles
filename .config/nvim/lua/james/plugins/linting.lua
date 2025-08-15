@@ -10,7 +10,6 @@ return {
 			typescript = { "biomejs" },
 			javascriptreact = { "biomejs" },
 			typescriptreact = { "biomejs" },
-			svelte = { "eslint_d" },
 			python = { "ruff" },
 			c = { "cpplint" },
 			cpp = { "cpplint" },

@@ -71,6 +71,7 @@ alias ls="eza --color=always --icons=always"
 alias spotify="spotify_player"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+alias cal="calcure"
 
 
 function y() {
