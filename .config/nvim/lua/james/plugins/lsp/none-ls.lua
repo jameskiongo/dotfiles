@@ -20,6 +20,7 @@ return {
 				"pylint", -- python linter
 				"eslint_d", -- js linter
 				"isort", -- python formatter
+				"gofmt",
 			},
 		})
 
@@ -44,6 +45,7 @@ return {
 				formatting.stylua, -- lua formatter
 				formatting.isort,
 				formatting.black,
+				formatting.gofmt,
 				diagnostics.pylint,
 				diagnostics.eslint_d.with({ -- js/ts linter
 					condition = function(utils)

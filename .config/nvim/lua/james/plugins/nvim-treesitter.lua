@@ -44,6 +44,7 @@ return {
 					"http",
 					"cpp",
 					"rust",
+					"go",
 				},
 				incremental_selection = {
 					enable = true,

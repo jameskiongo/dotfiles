@@ -39,6 +39,7 @@ return {
 				"pyright",
 				"jedi_language_server",
 				"clangd",
+				"gopls",
 				"rust_analyzer",
 			},
 			-- auto-install configured servers (with lspconfig)

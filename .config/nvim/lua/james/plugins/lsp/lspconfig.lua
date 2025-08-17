@@ -148,7 +148,6 @@ return {
 		end
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
-			-- enabled = false,
 			root_dir = function(fname)
 				local util = lspconfig.util
 				return not util.root_pattern("deno.json", "deno.jsonc")(fname)
@@ -163,19 +162,7 @@ return {
 			},
 		})
 		--pyright
-		lspconfig.pyright.setup({
-			capabilities = capabilities,
-			settings = {
-				python = {
-					analysis = {
-						typeCheckingMode = "basic",
-						autoImportCompletions = true,
-						useLibraryCodeForTypes = true,
-						diagnosticMode = "workspace",
-					},
-				},
-			},
-		})
+		vim.lsp.enable("pyright")
 		--css
 		lspconfig.cssls.setup({
 			capabilities = capabilities,
@@ -217,7 +204,6 @@ return {
 				},
 			},
 		})
-		vim.lsp.enable("pyright")
 		-- eslint
 		lspconfig.eslint.setup({
 			capabilities = capabilities,
@@ -259,6 +245,21 @@ return {
 			filetypes = { "c", "cpp", "objc", "objcpp" },
 			root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
 			single_file_support = true,
+		})
+		lspconfig.gopls.setup({
+			capabilities = capabilities,
+			cmd = { "gopls" },
+			filetypes = { "go", "gomod", "gowork", "gotmpl" },
+			root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+			settings = {
+				gopls = {
+					completeUnimported = true,
+					usePlaceholders = true,
+					analyses = {
+						unusedparams = true,
+					},
+				},
+			},
 		})
 	end,
 }
