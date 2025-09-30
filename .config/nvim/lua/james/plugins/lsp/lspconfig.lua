@@ -87,13 +87,18 @@ return {
 		-- as mason setup_handlers is deprecated & its causing issues with lsp settings
 		--
 		-- Setup servers
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
+		-- local lspconfig = vim.lsp.config
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- Config lsp servers here
 		-- lua_ls
-		lspconfig.lua_ls.setup({
+		-- lspconfig.lua_ls.setup({
+		vim.lsp.config("*", {
+			root_markers = { ".git" },
+		})
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -113,7 +118,8 @@ return {
 			},
 		})
 		-- emmet_ls
-		lspconfig.emmet_ls.setup({
+		-- lspconfig.emmet_ls.setup({
+		vim.lsp.config("emmet_ls", {
 			capabilities = capabilities,
 			filetypes = {
 				"html",
@@ -126,45 +132,15 @@ return {
 				"svelte",
 			},
 		})
-
 		-- ts_ls (replaces tsserver)
-		local configs = require("lspconfig.configs")
-		if not configs.ts_ls then
-			configs.ts_ls = {
-				default_config = {
-					cmd = { "typescript-language-server", "--stdio" },
-					capabilties = capabilities,
-					filetypes = {
-						"javascript",
-						"javascriptreact",
-						"typescript",
-						"typescriptreact",
-						"html",
-					},
-					root_dir = require("lspconfig").util.root_pattern("package.json", "tsconfig.json", ".git"),
-					single_file_support = true,
-				},
-			}
-		end
-		lspconfig.ts_ls.setup({
-			capabilities = capabilities,
-			root_dir = function(fname)
-				local util = lspconfig.util
-				return not util.root_pattern("deno.json", "deno.jsonc")(fname)
-					and util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
-			end,
-			single_file_support = false,
-			init_options = {
-				preferences = {
-					includeCompletionsWithSnippetText = true,
-					includeCompletionsForImportStatements = true,
-				},
-			},
+		vim.lsp.config("ts_ls", {
+			cmd = { "typescript-language-server", "--stdio" },
+			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		})
 		--pyright
-		vim.lsp.enable("pyright")
 		--css
-		lspconfig.cssls.setup({
+		-- lspconfig.cssls.setup({
+		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 			settings = {
 				css = {
@@ -179,7 +155,8 @@ return {
 			},
 		})
 		--tailwindcss
-		lspconfig.tailwindcss.setup({
+		-- lspconfig.tailwindcss.setup({
+		vim.lsp.config("tailwindcss", {
 			capabilities = capabilities,
 			filetypes = {
 				"html",
@@ -205,7 +182,8 @@ return {
 			},
 		})
 		-- eslint
-		lspconfig.eslint.setup({
+		-- lspconfig.eslint.setup({
+		vim.lsp.config("eslint", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				-- Disable formatting if you're using a separate formatter like Prettier
@@ -214,7 +192,8 @@ return {
 			end,
 		})
 		--html
-		lspconfig.html.setup({
+		-- lspconfig.html.setup({
+		vim.lsp.config("html", {
 			capabilities = capabilities,
 			filetypes = {
 				"html",
@@ -231,26 +210,23 @@ return {
 			},
 		})
 		-- clangd
-		lspconfig.clangd.setup({
+		-- lspconfig.clangd.setup({
+		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			cmd = {
 				"clangd",
-				"--background-index",
-				"--clang-tidy",
-				"--cross-file-rename",
-				"--completion-style=detailed",
-				"--header-insertion=iwyu",
-				"--suggest-missing-includes",
 			},
 			filetypes = { "c", "cpp", "objc", "objcpp" },
-			root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+			-- root_dir = lspconfig.util.root_pattern(),
+			-- root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
 			single_file_support = true,
 		})
-		lspconfig.gopls.setup({
+		-- lspconfig.gopls.setup({
+		vim.lsp.config("gopls", {
 			capabilities = capabilities,
 			cmd = { "gopls" },
 			filetypes = { "go", "gomod", "gowork", "gotmpl" },
-			root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+			-- root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
 			settings = {
 				gopls = {
 					completeUnimported = true,
@@ -260,6 +236,18 @@ return {
 					},
 				},
 			},
+		})
+		vim.lsp.enable({
+			"gopls",
+			"clangd",
+			"pyright",
+			"html",
+			"eslint",
+			"tailwindcss",
+			"lua_ls",
+			"emmet_ls",
+			"ts_ls",
+			"cssls",
 		})
 	end,
 }
