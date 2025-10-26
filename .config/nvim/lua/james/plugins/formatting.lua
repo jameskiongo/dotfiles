@@ -10,10 +10,6 @@ return {
 				css = { "prettierd" },
 				graphql = { "prettierd" },
 				html = { "prettierd" },
-				-- javascript = { "eslint_d" },
-				-- typescript = { "eslint_d" },
-				-- javascriptreact = { "eslint_d" },
-				-- typescriptreact = { "eslint_d" },
 				javascript = { "biome-check" },
 				javascriptreact = { "biome-check" },
 				typescript = { "biome-check" },
@@ -25,6 +21,7 @@ return {
 				sql = { "sql-formatter" },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
+				go = { "gofumpt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

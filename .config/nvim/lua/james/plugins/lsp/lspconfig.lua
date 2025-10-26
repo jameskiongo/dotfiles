@@ -77,172 +77,29 @@ return {
 			signs = {
 				text = signs, -- Enable signs in the gutter
 			},
-			virtual_text = true, -- Specify Enable virtual text for diagnostics
+			-- virtual_text = true, -- Specify Enable virtual text for diagnostics
+			-- virtual_text = false, -- Specify Enable virtual text for diagnostics
+			-- virtual_text = {
+			-- 	severity = {
+			-- 		vim.diagnostic.severity.ERROR,
+			-- 		vim.diagnostic.severity.INFO,
+			-- 	},
+			-- }, -- Specify Enable virtual text for diagnostics
 			underline = true, -- Specify Underline diagnostics
 			update_in_insert = false, -- Keep diagnostics active in insert mode
 		})
 
-		-- NOTE :
-		-- Moved back from mason_lspconfig.setup_handlers from mason.lua file
-		-- as mason setup_handlers is deprecated & its causing issues with lsp settings
-		--
-		-- Setup servers
-		-- local lspconfig = require("lspconfig")
-		-- local lspconfig = vim.lsp.config
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		-- local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		-- Config lsp servers here
-		-- lua_ls
-		-- lspconfig.lua_ls.setup({
 		vim.lsp.config("*", {
 			root_markers = { ".git" },
-		})
-		vim.lsp.config("lua_ls", {
-			capabilities = capabilities,
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
-					},
-					completion = {
-						callSnippet = "Replace",
-					},
-					workspace = {
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
-					},
-				},
-			},
-		})
-		-- emmet_ls
-		-- lspconfig.emmet_ls.setup({
-		vim.lsp.config("emmet_ls", {
-			capabilities = capabilities,
-			filetypes = {
-				"html",
-				"typescriptreact",
-				"javascriptreact",
-				"css",
-				"sass",
-				"scss",
-				"less",
-				"svelte",
-			},
-		})
-		-- ts_ls (replaces tsserver)
-		vim.lsp.config("ts_ls", {
-			cmd = { "typescript-language-server", "--stdio" },
-			filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-		})
-		--pyright
-		--css
-		-- lspconfig.cssls.setup({
-		vim.lsp.config("cssls", {
-			capabilities = capabilities,
-			settings = {
-				css = {
-					validate = true,
-				},
-				scss = {
-					validate = true,
-				},
-				less = {
-					validate = true,
-				},
-			},
-		})
-		--tailwindcss
-		-- lspconfig.tailwindcss.setup({
-		vim.lsp.config("tailwindcss", {
-			capabilities = capabilities,
-			filetypes = {
-				"html",
-				"typescriptreact",
-				"javascriptreact",
-				"css",
-				"sass",
-				"scss",
-				"less",
-				"svelte",
-			},
-			init_options = {
-				userLanguages = {
-					svelte = "html",
-					typescriptreact = "html",
-					javascriptreact = "html",
-					html = "html",
-					css = "css",
-					sass = "css",
-					scss = "css",
-					less = "css",
-				},
-			},
-		})
-		-- eslint
-		-- lspconfig.eslint.setup({
-		vim.lsp.config("eslint", {
-			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				-- Disable formatting if you're using a separate formatter like Prettier
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.documentRangeFormattingProvider = false
-			end,
-		})
-		--html
-		-- lspconfig.html.setup({
-		vim.lsp.config("html", {
-			capabilities = capabilities,
-			filetypes = {
-				"html",
-				"typescriptreact",
-				"javascriptreact",
-				"css",
-				"sass",
-				"scss",
-				"less",
-				"svelte",
-			},
-			init_options = {
-				provideFormatter = false,
-			},
-		})
-		-- clangd
-		-- lspconfig.clangd.setup({
-		vim.lsp.config("clangd", {
-			capabilities = capabilities,
-			cmd = {
-				"clangd",
-			},
-			filetypes = { "c", "cpp", "objc", "objcpp" },
-			-- root_dir = lspconfig.util.root_pattern(),
-			-- root_dir = lspconfig.util.root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
-			single_file_support = true,
-		})
-		-- lspconfig.gopls.setup({
-		vim.lsp.config("gopls", {
-			capabilities = capabilities,
-			cmd = { "gopls" },
-			filetypes = { "go", "gomod", "gowork", "gotmpl" },
-			-- root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
-			settings = {
-				gopls = {
-					completeUnimported = true,
-					usePlaceholders = true,
-					analyses = {
-						unusedparams = true,
-					},
-				},
-			},
 		})
 		vim.lsp.enable({
 			"gopls",
 			"clangd",
 			"pyright",
 			"html",
-			"eslint",
 			"tailwindcss",
 			"lua_ls",
 			"emmet_ls",

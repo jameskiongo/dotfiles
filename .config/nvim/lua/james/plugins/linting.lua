@@ -10,6 +10,7 @@ return {
 			typescript = { "biomejs" },
 			javascriptreact = { "biomejs" },
 			typescriptreact = { "biomejs" },
+			go = { "golangcilint" },
 			python = { "ruff" },
 			c = { "cpplint" },
 			cpp = { "cpplint" },

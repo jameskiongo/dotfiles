@@ -80,11 +80,11 @@ keymap.set("n", "<leader>of", "<cmd>ObsidianFollowLink<CR>", {
 })
 
 --toggle lsp linting visibility
-local isLspDiagnosticsVisible = true
-vim.keymap.set("n", "<leader>lx", function()
-	isLspDiagnosticsVisible = not isLspDiagnosticsVisible
-	vim.diagnostic.config({
-		virtual_text = isLspDiagnosticsVisible,
-		underline = isLspDiagnosticsVisible,
-	})
-end, { desc = "Toggle LSP diagnostics visibility" })
+-- local isLspDiagnosticsVisible = true
+-- vim.keymap.set("n", "<leader>lx", function()
+-- 	isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+-- 	vim.diagnostic.config({
+-- 		virtual_text = isLspDiagnosticsVisible,
+-- 		underline = isLspDiagnosticsVisible,
+-- 	})
+-- end, { desc = "Toggle LSP diagnostics visibility" })

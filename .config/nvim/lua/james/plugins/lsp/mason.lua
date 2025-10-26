@@ -64,6 +64,7 @@ return {
 				"mypy",
 				"cpplint",
 				"clang-format",
+				"golangci-lint",
 			},
 		})
 	end,
