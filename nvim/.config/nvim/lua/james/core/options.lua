@@ -1,5 +1,9 @@
 local opt = vim.opt -- for conciseness
-
+vim.api.nvim_set_hl(0, "BufferLineFill", { fg = "#ffffff" })
+vim.api.nvim_set_hl(0, "BufferLineBackground", { fg = "#ffffff" })
+vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { bold = true })
+vim.api.nvim_set_hl(0, "BufferLineSeparator", { bg = "NONE", fg = "NONE" })
+vim.api.nvim_set_hl(0, "BufferLineSeparatorSelected", {})
 -- line numbers
 opt.termguicolors = true
 opt.relativenumber = true -- show relative line numbers
