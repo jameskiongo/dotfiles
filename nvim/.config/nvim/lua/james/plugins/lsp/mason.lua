@@ -65,6 +65,7 @@ return {
 				"cpplint",
 				"clang-format",
 				"golangci-lint",
+				"gofumpt",
 			},
 		})
 	end,
