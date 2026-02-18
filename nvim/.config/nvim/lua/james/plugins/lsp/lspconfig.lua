@@ -103,7 +103,7 @@ return {
 			"tailwindcss",
 			"lua_ls",
 			"emmet_ls",
-			"ts_ls",
+			-- "ts_ls",
 			"cssls",
 		})
 	end,
