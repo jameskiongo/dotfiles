@@ -12,15 +12,7 @@ return {
 	-- filetypes copied and adjusted from tailwindcss-intellisense
 	filetypes = {
 		-- html
-		"aspnetcorerazor",
-		"astro",
-		"astro-markdown",
-		"blade",
-		"clojure",
-		"django-html",
-		"htmldjango",
 		"edge",
-		"eelixir", -- vim ft
 		"elixir",
 		"ejs",
 		"erb",

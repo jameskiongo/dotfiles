@@ -10,6 +10,7 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })
 keymap.set("i", "jl", "<ESC>o", { desc = "Insert newline below" }) -- insert newline below
 keymap.set("i", "jb", "<ESC>i", { desc = "Insert previous char to the left" })
+keymap.set("i", "jk", "<ESC>la", { desc = "Insert previous char to the right" })
 keymap.set("i", "j;", "<ESC>$a", { desc = "Insert to the end of the line" })
 
 -- clear search highlights

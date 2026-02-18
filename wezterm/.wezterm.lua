@@ -57,5 +57,6 @@ config.font = wezterm.font("MesloLGS Nerd Font Mono", {
 	weight = "Medium",
 	italic = false,
 })
-config.font_size = 13
+config.font_size = 10.5
+config.enable_wayland = false
 return config
