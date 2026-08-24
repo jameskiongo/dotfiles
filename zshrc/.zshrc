@@ -85,3 +85,5 @@ function y() {
 export EDITOR=nvim
 
 . "$HOME/.local/bin/env"
+export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/go/bin
