@@ -98,13 +98,14 @@ return {
 		vim.lsp.enable({
 			"gopls",
 			"clangd",
-			"pyright",
-			"html",
-			"tailwindcss",
+			-- "pyright",
+			-- "html",
+			-- "tailwindcss",
 			"lua_ls",
-			"emmet_ls",
+			-- "emmet_ls",
 			-- "ts_ls",
-			"cssls",
+			-- "cssls",
+			"rust_analyzer",
 		})
 	end,
 }

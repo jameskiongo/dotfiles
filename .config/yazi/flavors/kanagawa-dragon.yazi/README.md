@@ -3,7 +3,7 @@
 </div>
 
 <h3 align="center">
-	Ayu Dark Flavor for <a href="https://github.com/sxyazi/yazi">Yazi</a>
+    Kanagawa Dragon Flavor for <a href="https://github.com/sxyazi/yazi">Yazi</a>
 </h3>
 
 ## 👀 Preview
@@ -13,16 +13,16 @@
 ## 🎨 Installation
 
 ```bash
-ya pack -a kmlupreti/ayu-dark
+ya pkg add marcosvnmelo/kanagawa-dragon
 ```
 
 ## ⚙️ Usage
 
-Add the these lines to your `theme.toml` configuration file to use it:
+Add these lines to your `theme.toml` configuration file to use it:
 
 ```toml
 [flavor]
-use = "ayu-dark"
+dark = "kanagawa-dragon"
 ```
 
 ## 📜 License

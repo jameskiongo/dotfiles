@@ -9,6 +9,9 @@ return {
 				lookahead = true,
 				include_surrounding_whitespace = false,
 			},
+			move = {
+				set_jumps = true,
+			},
 		})
 
 		-- select textobjects
@@ -33,11 +36,11 @@ return {
 			["al"] = "@loop.outer",
 			["il"] = "@loop.inner",
 
-			["af"] = "@call.outer",
-			["if"] = "@call.inner",
+			["am"] = "@call.outer",
+			["im"] = "@call.inner",
 
-			["am"] = "@function.outer",
-			["im"] = "@function.inner",
+			["af"] = "@function.outer",
+			["if"] = "@function.inner",
 
 			["ac"] = "@class.outer",
 			["ic"] = "@class.inner",
@@ -70,16 +73,91 @@ return {
 			swap.swap_previous("@function.outer")
 		end, { desc = "Swap function with previous" })
 
+		-- move textobjects
+		local move = require("nvim-treesitter-textobjects.move")
+
+		local function goto_next_start(query, query_group)
+			return function()
+				move.goto_next_start(query, query_group or "textobjects")
+			end
+		end
+		local function goto_next_end(query, query_group)
+			return function()
+				move.goto_next_end(query, query_group or "textobjects")
+			end
+		end
+		local function goto_prev_start(query, query_group)
+			return function()
+				move.goto_previous_start(query, query_group or "textobjects")
+			end
+		end
+		local function goto_prev_end(query, query_group)
+			return function()
+				move.goto_previous_end(query, query_group or "textobjects")
+			end
+		end
+
+		vim.keymap.set({ "n", "x", "o" }, "]f", goto_next_start("@call.outer"), { desc = "Next function call start" })
+		vim.keymap.set(
+			{ "n", "x", "o" },
+			"]m",
+			goto_next_start("@function.outer"),
+			{ desc = "Next method/function def start" }
+		)
+		vim.keymap.set({ "n", "x", "o" }, "]c", goto_next_start("@class.outer"), { desc = "Next class start" })
+		vim.keymap.set(
+			{ "n", "x", "o" },
+			"]i",
+			goto_next_start("@conditional.outer"),
+			{ desc = "Next conditional start" }
+		)
+		vim.keymap.set({ "n", "x", "o" }, "]l", goto_next_start("@loop.outer"), { desc = "Next loop start" })
+		vim.keymap.set({ "n", "x", "o" }, "]F", goto_next_end("@call.outer"), { desc = "Next function call end" })
+		vim.keymap.set(
+			{ "n", "x", "o" },
+			"]M",
+			goto_next_end("@function.outer"),
+			{ desc = "Next method/function def end" }
+		)
+		vim.keymap.set({ "n", "x", "o" }, "]C", goto_next_end("@class.outer"), { desc = "Next class end" })
+		vim.keymap.set({ "n", "x", "o" }, "]I", goto_next_end("@conditional.outer"), { desc = "Next conditional end" })
+		vim.keymap.set({ "n", "x", "o" }, "]L", goto_next_end("@loop.outer"), { desc = "Next loop end" })
+
+		vim.keymap.set({ "n", "x", "o" }, "[f", goto_prev_start("@call.outer"), { desc = "Prev function call start" })
+		vim.keymap.set(
+			{ "n", "x", "o" },
+			"[m",
+			goto_prev_start("@function.outer"),
+			{ desc = "Prev method/function def start" }
+		)
+		vim.keymap.set({ "n", "x", "o" }, "[c", goto_prev_start("@class.outer"), { desc = "Prev class start" })
+		vim.keymap.set(
+			{ "n", "x", "o" },
+			"[i",
+			goto_prev_start("@conditional.outer"),
+			{ desc = "Prev conditional start" }
+		)
+		vim.keymap.set({ "n", "x", "o" }, "[l", goto_prev_start("@loop.outer"), { desc = "Prev loop start" })
+
+		vim.keymap.set({ "n", "x", "o" }, "[F", goto_prev_end("@call.outer"), { desc = "Prev function call end" })
+		vim.keymap.set(
+			{ "n", "x", "o" },
+			"[M",
+			goto_prev_end("@function.outer"),
+			{ desc = "Prev method/function def end" }
+		)
+		vim.keymap.set({ "n", "x", "o" }, "[C", goto_prev_end("@class.outer"), { desc = "Prev class end" })
+		vim.keymap.set({ "n", "x", "o" }, "[I", goto_prev_end("@conditional.outer"), { desc = "Prev conditional end" })
+		vim.keymap.set({ "n", "x", "o" }, "[L", goto_prev_end("@loop.outer"), { desc = "Prev loop end" })
+
 		local ts_repeat_move = require("nvim-treesitter-textobjects.repeatable_move")
 
-		vim.keymap.set("i", "jl", "<ESC>o", { desc = "Insert newline below" }) -- insert newline below
-		vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-		vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+		vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+		vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
 
-		-- Optionally, make builtin f, F, t, T also repeatable with ; and ,
-		vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
-		vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
-		vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
-		vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
+		vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
+		vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
+		vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
+		vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 	end,
 }
