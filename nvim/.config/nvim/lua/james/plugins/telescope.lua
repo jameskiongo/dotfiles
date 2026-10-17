@@ -7,6 +7,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"debugloop/telescope-undo.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
+		"gbprod/yanky.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -24,30 +25,15 @@ return {
 					},
 				},
 			},
-			-- pickers = {
-			-- 	find_files = {
-			-- 		hidden = true,
-			-- 		no_ignore = true,
-			-- 	},
-			-- },
 			extensions = {
+				["ui-select"] = {
+					require("telescope.themes").get_dropdown({}),
+				},
 				undo = {
-					opts = {
-						extensions = {
-							["ui-select"] = {
-								require("telescope.themes").get_dropdown({
-									-- even more opts
-								}),
-							},
-							undo = {
-								side_by_side = true,
-								layout_strategy = "vertical",
-								layout_config = {
-									preview_height = 0.8,
-								},
-							},
-							fzf = {},
-						},
+					side_by_side = true,
+					layout_strategy = "vertical",
+					layout_config = {
+						preview_height = 0.8,
 					},
 				},
 			},
@@ -60,7 +46,7 @@ return {
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
-		keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>")
+		keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Undo history" })
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
 		keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })

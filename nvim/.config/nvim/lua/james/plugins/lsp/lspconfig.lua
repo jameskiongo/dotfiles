@@ -105,7 +105,7 @@ return {
 			-- "emmet_ls",
 			-- "ts_ls",
 			-- "cssls",
-			"rust_analyzer",
+			-- "rust_analyzer",
 		})
 	end,
 }

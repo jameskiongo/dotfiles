@@ -8,7 +8,7 @@ return {
 		-- configure lualine with modified theme
 		lualine.setup({
 			options = {
-				theme = "zenbones",
+				theme = "auto",
 				-- component_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
