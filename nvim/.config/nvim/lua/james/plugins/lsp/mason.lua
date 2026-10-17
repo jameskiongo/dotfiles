@@ -30,14 +30,8 @@ return {
 				"html",
 				"cssls",
 				"tailwindcss",
-				"svelte",
 				"lua_ls",
-				"graphql",
 				"emmet_ls",
-				"prismals",
-				"pylsp",
-				"pyright",
-				"jedi_language_server",
 				"clangd",
 				"gopls",
 				"rust_analyzer",
@@ -48,20 +42,13 @@ return {
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"prettier", -- prettier formatter
 				"prettierd",
 				"sql-formatter",
 				"stylua", -- lua formatter
 				"biome",
 				"isort", -- python formatter
 				"black", -- python formatter
-				"pylint", -- python linter
-				"eslint_d", -- js linter
-				"htmlhint",
-				"flake8",
-				"autopep8",
 				"ruff",
-				"mypy",
 				"cpplint",
 				"clang-format",
 				"golangci-lint",
