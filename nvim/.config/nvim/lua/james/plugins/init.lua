@@ -43,15 +43,23 @@ return {
 		---@type render.md.UserConfig
 		opts = {},
 	},
-	-- rustacean
-	"mrcjkb/rustaceanvim",
-	version = "^9", -- Recommended
-	lazy = false, -- This plugin is already lazy
-	enabled = true,
-	["rust-analyzer"] = {
-		cargo = {
-			allFeatures = true,
-		},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^9",
+		lazy = false, -- this plugin is already lazy
+		init = function()
+			vim.g.rustaceanvim = {
+				server = {
+					default_settings = {
+						["rust-analyzer"] = {
+							cargo = {
+								allFeatures = true,
+							},
+						},
+					},
+				},
+			}
+		end,
 	},
 	-- template string
 	{
